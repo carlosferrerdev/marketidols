@@ -3,11 +3,12 @@ class IdolsController < ApplicationController
 
   def index
     @idols = Idol.all
+    # if user_signed_in? && current_user != @idol.user
   end
 
   def show
     # @idol = Idol.find(params[:id])
-    @order = Order.new
+    # @order = Order.new
   end
 
   def new
@@ -16,6 +17,7 @@ class IdolsController < ApplicationController
 
   def create
     @idol = Idol.new(idol_params)
+    @idol.user = current_user
     if @idol.save
       redirect_to idol_path(@idol)
     else

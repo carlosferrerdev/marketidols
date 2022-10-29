@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "https://res.cloudinary.com/dzznfliwu/image/upload/v1666879645/Marketidols/Captura_de_Tela_2022-10-27_a%CC%80s_11.06.56_k85spz.png" %>
     <% end %>
 
@@ -12,22 +12,22 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
+            <%= link_to "Feed", idols_path, class: "nav-link" %>
+          </li>
+          <%# <li class="nav-item">
             <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
+          <%# </li> %>
           <li class="nav-item">
-            <%= link_to "Register Idol", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "New Idols", "#", class: "nav-link" %>
+            <%= link_to "New Idols", new_idol_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://res.cloudinary.com/dzznfliwu/image/upload/v1667057482/Marketidols/John_Lennon_mu0pnd.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Home", "#", class: "dropdown-item" %>
-              <%= link_to "Contact Us", "#", class: "dropdown-item" %>
+              <%= link_to "Home", root_path, class: "dropdown-item" %>
+              <%# <%= link_to "Contact Us", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
