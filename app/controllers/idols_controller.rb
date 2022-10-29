@@ -7,6 +7,7 @@ class IdolsController < ApplicationController
 
   def show
     # @idol = Idol.find(params[:id])
+    @order = Order.new
   end
 
   def new
@@ -30,7 +31,7 @@ class IdolsController < ApplicationController
   private
 
   def idol_params
-    params.require(:idol).permit(:name, :power)
+    params.require(:idol).permit(:name, :power, :description)
   end
 
   def set_idol

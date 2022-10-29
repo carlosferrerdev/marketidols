@@ -1,1 +1,24 @@
-<h1>Create your new idol!</h1>
+<div class="container mt-4 text-center">
+
+  <h1 class="fw-bold opacity-75">Create your new idol!</h1>
+
+  <div class="mt-4 d-flex justify-content-center">
+
+    <%= simple_form_for(@idol) do |f| %>
+      <div class="align-items-center"><%= f.input :name %></div>
+      <%# <%= f.input :photo, as: :file %>
+      <%= f.input :power %>
+      <%= f.input :description %>
+      <%= f.submit "Create Idol", class: "btn btn-primary mb-3 mt-2" %>
+    <% end %>
+
+  </div>
+
+    <div class="mt-3">
+      <%= link_to idols_path, class: "text-decoration-none" do %>
+        <i class="fa-solid fa-left-long"></i>
+          Back to Feed
+      <% end %>
+    </div>
+
+</div>

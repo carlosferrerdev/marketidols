@@ -1,3 +1,6 @@
-<%= @idols.each do |idol| %>
-  <%= idol.name idol.power %>
-<% end %>
+
+<ul>
+  <%= @idols.each do |idol| %>
+    <li><%= idol.name idol.power %></li>
+  <% end %>
+</ul>
