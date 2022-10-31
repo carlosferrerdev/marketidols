@@ -1,7 +1,22 @@
-
-<ul>
-  <% @idols.each do |idol| %>
-    <li><%= idol.name %>
-    <%= idol.power %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="cards row">
+    <% @idols.each do |idol| %>
+      <%# <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= link_to idol_path(idol), class: "text-decoration-none link-dark col-4" do %>
+        <div class="card-product p-0 m-3">
+        <img src="https://source.unsplash.com/random/700x600/?<%= idol.name %>"/>
+          <div class="card-product-infos h-100">
+            <h2><%= idol.name %></h2>
+            <h3><%= idol.power %></h3>
+            <p><%= idol.description %> with <strong>relevant info</strong> only.</p>
+            <%# <div class="">
+              <%= link_to idol_path(idol), data: {turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete your entire list?"}, class: "text-decoration-none text-secondary" do %>
+                <%# <i class="fa-solid fa-trash opacity-75 link-secondary felx-item"></i> %>
+              <%# <% end %>
+            <%# </div> %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
