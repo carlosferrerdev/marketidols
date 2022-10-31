@@ -4,6 +4,13 @@ class IdolsController < ApplicationController
   def index
     @idols = Idol.all
     # if user_signed_in? && current_user != @idol.user
+    # For Mapbox
+    @markers = @idols.geocoded.map do |idol|
+      {
+        lat: idol.latitude,
+        lng: idol.longitude
+      }
+    end
   end
 
   def show
