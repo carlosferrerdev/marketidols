@@ -33,7 +33,7 @@ class IdolsController < ApplicationController
   private
 
   def idol_params
-    params.require(:idol).permit(:name, :power, :description)
+    params.require(:idol).permit(:name, :power, :description, photos: [])
   end
 
   def set_idol
