@@ -9,6 +9,7 @@
       <%# <%= f.input :photo, as: :file %>
       <%= f.input :power %>
       <%= f.input :description %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.submit "Create Idol", class: "btn btn-primary mb-3 mt-2" %>
     <% end %>
 
