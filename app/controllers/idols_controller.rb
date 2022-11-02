@@ -37,6 +37,11 @@ class IdolsController < ApplicationController
     redirect_to idols_path
   end
 
+  def myidols
+    # @idols = Idol.where()
+    @idols = current_user.idols
+  end
+
   private
 
   def idol_params
