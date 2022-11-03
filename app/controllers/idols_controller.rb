@@ -2,9 +2,15 @@ class IdolsController < ApplicationController
   before_action :set_idol, only: %i[show destroy]
 
   def index
-    @idols = Idol.all
+    if params[:query].present?
+      # query = "title @@ :query OR description @@ :query"
+      # @idols = Idol.where(query, query: "%#{params[:query]}%")
+      @idols = Idol.search_by_name_and_description(params[:query])
+    else
+      @idols = Idol.all
     # if user_signed_in? && current_user != @idol.user
     # For Mapbox
+    end
     @markers = @idols.geocoded.map do |idol|
       {
         lat: idol.latitude,
@@ -34,12 +40,15 @@ class IdolsController < ApplicationController
 
   def destroy
     @idol.destroy
-    redirect_to idols_path
+    redirect_to myidols_idols_path
   end
 
   def myidols
-    # @idols = Idol.where()
-    @idols = current_user.idols
+    if params[:query].present?
+      @idols = Idol.search_by_name_and_description(params[:query])
+    else
+      @idols = Idol.where(user: current_user)
+    end
   end
 
   private
