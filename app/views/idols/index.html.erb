@@ -1,3 +1,21 @@
+<div class="banner-idols" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/random/700x600/?marvel);">
+  <div class="container">
+    <h1>All Idols</h1>
+    <p>Find and get all the most renowned heroes worldwide in one unique place!</p>
+    <%= simple_form_for :search, url: idols_path, method: :get do |f| %>
+      <div class="search-form-control form-group row">
+        <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "Find your Idol" %>
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
     <% @idols.each do |idol| %>
