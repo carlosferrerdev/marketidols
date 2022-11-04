@@ -8,20 +8,22 @@ class IdolsController < ApplicationController
       @idols = Idol.search_by_name_and_description(params[:query])
     else
       @idols = Idol.all
+    end
     # if user_signed_in? && current_user != @idol.user
-    # For Mapbox
-    end
-    @markers = @idols.geocoded.map do |idol|
-      {
-        lat: idol.latitude,
-        lng: idol.longitude
-      }
-    end
+
   end
 
   def show
     # @idol = Idol.find(params[:id])
     # @order = Order.new
+    @markers = [
+      {
+        lat: @idol.latitude,
+        lng: @idol.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {idol: @idol}),
+        image_url: helpers.asset_url("/Users/carlos/code/carlosferrerdev/marketidols/app/assets/images/logo.png")
+      }
+    ]
   end
 
   def new
@@ -55,7 +57,7 @@ class IdolsController < ApplicationController
   private
 
   def idol_params
-    params.require(:idol).permit(:name, :power, :description, photos: [])
+    params.require(:idol).permit(:name, :power, :description, :address, photos: [])
   end
 
   def set_idol
