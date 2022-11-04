@@ -23,12 +23,15 @@
         <%# <div class="card-product" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path idol.photo.key, height: 300, width: 400, crop: :fill %>
         <%= link_to idol_path(idol), class: "text-decoration-none link-dark col-4" do %>
           <div class="card-product p-0 m-3">
-            <img src="https://source.unsplash.com/random/700x600/?<%= idol.name %>"/>
-            <div class="card-product-infos h-100">
+            <img src="https://source.unsplash.com/random/700x600/?<%= idol.name %>" class="h-100"/>
+            <div class="card-product-infos w-100 h-100">
               <h2><%= idol.name %></h2>
               <h3><%= idol.power %></h3>
-              <p><%= idol.description %> with <strong>relevant info</strong> only.</p>
-              <h4 class="d-flex justify-content-end">£99.99</h4>
+              <p><%= idol.description.length > 23 ? "#{idol.description.first(23)}..." : idol.description %></p>
+              <%= link_to new_idol_order_path(idol), class: "text-decoration-none link-dark cart-idol" do %>
+                <i class="fa-solid fa-cart-shopping"></i>
+              <% end %>
+              <h4 class="price-idol">£99.99</h4>
 
               <%# </div> %>
             </div>

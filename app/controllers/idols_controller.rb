@@ -49,6 +49,7 @@ class IdolsController < ApplicationController
     else
       @idols = Idol.where(user: current_user)
     end
+    @my_order = Order.where(user_id: current_user.id)
   end
 
   private
