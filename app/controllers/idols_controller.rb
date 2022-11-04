@@ -9,12 +9,13 @@ class IdolsController < ApplicationController
     else
       @idols = Idol.all
     # if user_signed_in? && current_user != @idol.user
-    # For Mapbox
     end
     @markers = @idols.geocoded.map do |idol|
       {
         lat: idol.latitude,
         lng: idol.longitude
+        #info_window: render_to_string(partial: "info_window", locals: {idol: idol});
+        #image_url: helpers.asset_url("/Users/carlos/code/carlosferrerdev/marketidols/app/assets/images/logo.png")
       }
     end
   end
