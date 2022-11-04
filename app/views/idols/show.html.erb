@@ -2,7 +2,7 @@
   <h1><%= @idol.name %></h1>
 
   <% @idol.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
   <% end %>
 
   <div style="width: 100%; height: 600px;"
