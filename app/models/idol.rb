@@ -4,7 +4,7 @@ class Idol < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_by_name_and_description,
-    against: [ :name, :description ],
+    against: [ :name, :description, :price ],
     using: {
       tsearch: { prefix: true }
     }
@@ -15,4 +15,5 @@ class Idol < ApplicationRecord
   has_many_attached :photos
   validates :name, presence: true
   validates :power, presence: true, uniqueness: true
+  validates :price, presence: true
 end

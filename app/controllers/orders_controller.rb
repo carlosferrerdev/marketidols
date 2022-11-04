@@ -7,7 +7,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.idol = @idol
+    @order.price = @idol.price
+    @order.user = current_user
     if @order.save
       redirect_to idol_path(@idol)
     else
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:price, :idol_id)
+    params.require(:order).permit(:price)
   end
 
   def set_idol
