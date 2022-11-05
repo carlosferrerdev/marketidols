@@ -7,6 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'open-uri'
 
+puts "Cleaning up database..."
+Idol.destroy_all
+puts "Database cleaned"
+
 3.times do
   user = User.create(
         name: Faker::Name.name,
@@ -26,27 +30,24 @@ require 'open-uri'
         idol.photos.attach(io: file, filename: 'user.png', content_type: 'image/png')
   end
 end
-# puts "Cleaning up database..."
-# Idol.destroy_all
-# puts "Database cleaned"
 
-# 10.times do
-#   user = User.create(
-#     name: Faker::Name.name,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password(min_length: 6)
-#   )
+10.times do
+  user = User.create(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(min_length: 6)
+  )
 
-#   5.times do
-#     idol = Idol.create(
-#     name: Faker::Artist.name,
-#     power: Faker::Superhero.power,
-#     address: Faker::Address.full_address,
-#     description: Faker::Superhero.descriptor,
-#     price: Faker::Number.decimal(l_digits: 2),
-#     user: user
-#   )
-#     file = URI.open("https://source.unsplash.com/random/700x600/?#{idol.name}")
-#     idol.photos.attach(io: file, filename: 'user.png', content_type: 'image/png')
-#   end
-# end
+  5.times do
+    idol = Idol.create(
+    name: Faker::Artist.name,
+    power: Faker::Superhero.power,
+    address: Faker::Address.full_address,
+    description: Faker::Superhero.descriptor,
+    price: Faker::Number.decimal(l_digits: 2),
+    user: user
+  )
+    file = URI.open("https://source.unsplash.com/random/700x600/?#{idol.name}")
+    idol.photos.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  end
+end
