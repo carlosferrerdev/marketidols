@@ -5,16 +5,16 @@
     <%= cl_image_tag photo.key, height: 400, width: 500, crop: :fill %>
   <% end %>
   <p><%= @idol.power %></p>
-  <br>
+
   <p><%= @idol.description %></p>
-  <br>
+
   <p>$<%= @idol.price %></p>
 
-<div class="container center">
-  <div style="width: 100%; height: 400px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="container center">
+    <div style="width: 100%; height: 400px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
-</div>
 </div>
