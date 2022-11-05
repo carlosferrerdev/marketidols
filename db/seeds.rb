@@ -17,8 +17,8 @@ require 'open-uri'
   idol = Idol.create(
         name: Faker::Superhero.name,
         power: Faker::Superhero.power,
-        address: Faker::Address.city,
-        description: Faker::Superhero.descriptor,
+        address: Faker::Nation.capital_city,
+        description: Faker::Quote.famous_last_words,
         price: Faker::Number.decimal(l_digits: 2),
         user: user
       )
