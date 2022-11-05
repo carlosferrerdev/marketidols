@@ -14,6 +14,6 @@ class Idol < ApplicationRecord
 
   has_many_attached :photos
   validates :name, presence: true
-  validates :power, presence: true, uniqueness: true
- # validates :price, presence: true
+  validates :power, presence: true
+  validates :price, presence: true
 end

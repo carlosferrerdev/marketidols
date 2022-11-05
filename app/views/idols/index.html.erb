@@ -26,12 +26,12 @@
             <img src="https://source.unsplash.com/random/700x600/?<%= idol.name %>" class="h-100"/>
             <div class="card-product-infos w-100 h-100">
               <h2><%= idol.name %></h2>
-              <h3><%= idol.power %></h3>
+              <h3><%= idol.power.length > 24 ? "#{idol.power.first(24)}..." : idol.power %></h3>
               <p><%= idol.description.length > 23 ? "#{idol.description.first(23)}..." : idol.description %></p>
               <%= link_to new_idol_order_path(idol), class: "text-decoration-none link-dark cart-idol" do %>
                 <i class="fa-solid fa-cart-shopping"></i>
               <% end %>
-              <h4 class="price-idol">£99.99</h4>
+              <h4 class="price-idol">$<%= idol.price %></h4>
 
               <%# </div> %>
             </div>

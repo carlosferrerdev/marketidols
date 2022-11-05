@@ -49,9 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_03_230000) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+    t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.string "address"
     t.float "price"
     t.index ["user_id"], name: "index_idols_on_user_id"
   end
