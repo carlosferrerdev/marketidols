@@ -4,17 +4,17 @@
     <div class="text-center">
       <h1 class="mb-2">Marketidols</h1>
       <p style="margin: auto">Welcome to MarketIdols! We are very glad to have you with us today.</p>
-      <p>Find and get all the most renowned heroes worldwide in one unique place!</p>
+      <p><span data-controller="typed-js"></span></p>
         <%= link_to new_idol_path, class: "text-decoration-none" do %>
           <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit"><i class="fa-solid fa-plus"></i> Create your Idol</button>
         <% end %>
     </div>
     <% else %>
       <h1>Marketidols</h1>
-      <p>Find and get all the most renowned heroes worldwide in one unique place!</p>
+      <p><span data-controller="typed-js"></span></p>
       <%# <p>Create an account with us or login if you're already a member</p> %>
       <%= link_to "Login", new_user_session_path, class: "btn btn-outline-primary btn-block my-2 my-sm-0 ms-2 w-25" %>
-      <%= link_to "Sign-In", new_user_registration_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 w-25" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-outline-primary my-2 my-sm-0 ms-2 w-25" %>
     <% end %>
   </div>
 </div>
