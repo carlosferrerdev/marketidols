@@ -26,9 +26,9 @@
             <img src="https://source.unsplash.com/random/700x600/?<%= idol.name %>" class="h-100"/>
             <div class="card-product-infos w-100 h-100">
               <h2><%= idol.name %></h2>
-              <h3><%= idol.power %></h3>
+              <h3><%= idol.power.length > 24 ? "#{idol.power.first(24)}..." : idol.power %></h3>
               <p><%= idol.description.length > 23 ? "#{idol.description.first(23)}..." : idol.description %></p>
-              <h4 class="price-idol">£99.99</h4>
+              <h4 class="price-idol">$<%= idol.price %></h4>
               <%= link_to idol_path(idol), data: {turbo_method: :delete, turbo_confirm: "Are you sure that you want to delete this item?"}, class: "text-decoration-none text-secondary" do %>
                 <i class="fa-solid fa-trash opacity-75 link-secondary trash-idol"></i>
               <% end %>
