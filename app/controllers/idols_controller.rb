@@ -50,6 +50,9 @@ class IdolsController < ApplicationController
       @idols = Idol.search_by_name_and_description(params[:query])
     else
       @idols = Idol.where(user: current_user)
+      # user_orders = Order.where(user: current_user)
+      # purchased_idols = user_orders.map { |order| order.idol }
+      # @idols.concat(purchased_idols)
     end
     @my_order = Order.where(user_id: current_user.id)
   end

@@ -1,6 +1,8 @@
 <div class="container text-center mt-3">
   <h1>Add Idols to your Order</h1>
   <%= @idol.name %>
-  <%# <%= simple_form_for [@idol, @order] do |f| %>
-  <%# <% end %> 
+  <%= button_to "Buy ", action: "create" %>
+  <%= simple_form_for [@idol, @order] do |f| %>
+    <%= f.submit "Buy Idol", class: "btn btn-primary mb-3 mt-2" %>
+  <% end %>
 </div>
